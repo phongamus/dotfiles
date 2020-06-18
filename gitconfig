@@ -1,6 +1,6 @@
 [user]
-  name = John Anderson
-  email = sontek@gmail.com
+  name = phongamus 
+  email = phle03@gmail.com
 
 [push]
   default = current
@@ -9,7 +9,7 @@
   template = ~/.gitmessage
 
 [core]
-  editor = emacs
+  editor = vim
 
 [color]
   ui = true

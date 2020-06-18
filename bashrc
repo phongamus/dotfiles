@@ -26,13 +26,17 @@ fi
 
 
 # python virtualenvwrapper
-export WORKON_HOME=~/venvs
-export PROJECT_HOME=~/src
-vew_path=$(which virtualenvwrapper.sh)
-source $vew_path
+#export WORKON_HOME=~/venvs
+#export PROJECT_HOME=~/src
+#vew_path=$(which virtualenvwrapper.sh)
+#source $vew_path
 
 # setup nice colors
-eval `dircolors ~/.dircolors`
+# eval `dircolors ~/.dircolors`
 export GREP_OPTIONS='--color=auto'
 alias ls='ls --color'
-export PS1="$(tput setaf 1)\w\n\[$(tput bold)\]\[$(tput setaf 1)\][\[$(tput setaf 3)\]\u\[$(tput setaf 2)\]@\[$(tput setaf 4)\]\h\[$(tput setaf 5)\]\[$(tput setaf 1)\]]\[$(tput setaf 7)\]\\$\[$(tput sgr0)\] "
+parse_git_branch() {
+     git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
+}
+
+export PS1="$(tput setaf 1)\w\n\[$(tput bold)\]\[$(tput setaf 1)\][\[$(tput setaf 3)\]\u\[$(tput setaf 2)\]@\[$(tput setaf 4)\]\h\[$(tput setaf 5)\]\[$(tput setaf 1)\]]\[$(tput setaf 7)\]\\[$(tput sgr0)\]\e[91m\]\$(parse_git_branch)\[\e[00m\]$ "
